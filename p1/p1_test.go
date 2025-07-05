@@ -22,7 +22,7 @@ func TestTwoSum(t *testing.T) {
 	for _, s := range tests {
 		description := fmt.Sprintf("nums: %v, target: %v", s.Nums, s.Target)
 		t.Run(description, func(t *testing.T) {
-			got := twoSum(s.Nums, s.Target)
+			got := TwoSum(s.Nums, s.Target)
 
 			if !reflect.DeepEqual(s.Want, got) {
 				t.Errorf("expected = %v, target = %d, twoSum(%v) = %v", s.Want, s.Target, s.Nums, got)
