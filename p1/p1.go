@@ -9,7 +9,7 @@ package p1
 //   - Only one valid answer exists.
 func TwoSum(nums []int, target int) []int {
 	// map[delta from target]index
-	processed := make(map[int]int)
+	processed := make(map[int]int, len(nums)-1)
 
 	for i, num := range nums {
 		delta := target - num
