@@ -14,9 +14,7 @@ func LengthOfLongestSubstring(s string) int {
 			for k, v := range seen {
 				if v > bidx {
 					nn[k] = v
-
 				}
-
 			}
 			counter = idx - bidx
 			seen = nn
