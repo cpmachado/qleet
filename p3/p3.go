@@ -10,15 +10,14 @@ func LengthOfLongestSubstring(s string) int {
 			if maxCount < counter {
 				maxCount = counter
 			}
-			nn := make(map[rune]int)
 			for k, v := range seen {
-				if v > bidx {
-					nn[k] = v
+				if v < bidx {
+					delete(seen, k)
 				}
 			}
-			counter = idx - bidx
-			seen = nn
+			counter = idx - bidx - 1
 		}
+		counter++
 		seen[c] = idx
 	}
 	if maxCount < counter {
