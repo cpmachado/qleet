@@ -24,16 +24,17 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			v2 = l2.Val
 			l2 = l2.Next
 		}
-		v := (v1 + v2 + carry) % 10
+
+		node := new(ListNode)
+		node.Val = (v1 + v2 + carry) % 10
 		carry = (v1 + v2 + carry) / 10
-		node := ListNode{Val: v}
 
 		if tail == nil {
-			base = &node
+			base = node
 		} else {
-			tail.Next = &node
+			tail.Next = node
 		}
-		tail = &node
+		tail = node
 
 	}
 	return base
