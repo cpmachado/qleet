@@ -119,7 +119,7 @@ func TestAddTwoNumbers(t *testing.T) {
 		t.Run(description, func(t *testing.T) {
 			got := AddTwoNumbers(s.L1, s.L2)
 
-			if !s.Want.Equal(got) {
+			if s.Want.String() != got.String() {
 				t.Errorf("Expected %v, but got %v\n", s.Want, got)
 			}
 		})

@@ -11,18 +11,32 @@ type ListNode struct {
 }
 
 func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	return nil
-}
+	var base, tail *ListNode
+	carry := 0
 
-func (l1 *ListNode) Equal(l2 *ListNode) bool {
-	p, q := l1, l2
+	for l1 != nil || l2 != nil || carry != 0 {
+		v1, v2 := 0, 0
+		if l1 != nil {
+			v1 = l1.Val
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			v2 = l2.Val
+			l2 = l2.Next
+		}
+		v := (v1 + v2 + carry) % 10
+		carry = (v1 + v2 + carry) / 10
+		node := ListNode{Val: v}
 
-	for p != nil && q != nil && p.Val == q.Val {
-		p = p.Next
-		q = q.Next
+		if tail == nil {
+			base = &node
+		} else {
+			tail.Next = &node
+		}
+		tail = &node
+
 	}
-
-	return p != nil && q != nil
+	return base
 }
 
 func (l1 *ListNode) String() string {
