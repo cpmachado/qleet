@@ -14,7 +14,7 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 	tests := []lengthOfLongestSubstringTest{
 		{S: "abcabcbb", Want: 3},
 		{S: "bbbbb", Want: 1},
-		{S: "pwwkew", Want: 5},
+		{S: "pwwkew", Want: 3},
 	}
 
 	for _, s := range tests {
